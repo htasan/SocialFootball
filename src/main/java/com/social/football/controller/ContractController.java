@@ -2,7 +2,6 @@ package com.social.football.controller;
 
 import com.social.football.model.dto.ContractRequestDto;
 import com.social.football.model.dto.ContractResponseDto;
-import com.social.football.model.dto.PlayerResponseDto;
 import com.social.football.service.ContractService;
 import com.social.football.service.converter.ContractResponseDtoConverter;
 import io.swagger.annotations.ApiOperation;
@@ -19,7 +18,8 @@ public class ContractController {
     @ApiOperation(value = "Create contract", response = ContractResponseDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Contract successfully created"),
-            @ApiResponse(code = 400, message = "Contract could not be created")
+            @ApiResponse(code = 400, message = "Contract could not be created"),
+            @ApiResponse(code = 404, message = "Player or team could not be found")
     })
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping

@@ -1,5 +1,7 @@
 package com.social.football.controller;
 
+import com.social.football.exception.BadRequestException;
+import com.social.football.exception.NotFoundException;
 import com.social.football.model.Contract;
 import com.social.football.model.Player;
 import com.social.football.model.Team;
@@ -17,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -52,5 +55,31 @@ public class ContractControllerTest {
                 .andExpect(jsonPath("$.playerName").value("Messi"))
                 .andExpect(jsonPath("$.startDate").value("2019-01-01T00:00:00"))
                 .andExpect(jsonPath("$.endDate").value("2020-01-01T00:00:00"));
+    }
+
+    @Test
+    public void throwBadRequestException() throws Exception {
+        doThrow(BadRequestException.class).when(contractService).create(ContractRequestDto.builder().playerId(1L).teamId(1L).startYear(2019).endYear(2019).build());
+        mockMvc.perform(post("/contracts")
+                .contentType("application/json").content("{\n" +
+                        " \t\"playerId\": 1,\n" +
+                        " \t\"teamId\": 1,\n" +
+                        " \t\"startYear\": 2019,\n" +
+                        " \t\"endYear\": 2019\n" +
+                        "}"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void throwNotFoundException() throws Exception {
+        doThrow(NotFoundException.class).when(contractService).create(ContractRequestDto.builder().playerId(1L).teamId(1L).startYear(2019).endYear(2019).build());
+        mockMvc.perform(post("/contracts")
+                .contentType("application/json").content("{\n" +
+                        " \t\"playerId\": 1,\n" +
+                        " \t\"teamId\": 1,\n" +
+                        " \t\"startYear\": 2019,\n" +
+                        " \t\"endYear\": 2019\n" +
+                        "}"))
+                .andExpect(status().isNotFound());
     }
 }
