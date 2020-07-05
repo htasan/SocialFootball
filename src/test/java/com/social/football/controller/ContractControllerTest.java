@@ -42,10 +42,10 @@ public class ContractControllerTest {
                         .endDate(LocalDateTime.of(2020, 1, 1, 0, 0, 0)).build());
         mockMvc.perform(post("/contracts")
                 .contentType("application/json").content("{\n" +
-                        "     \"playerId\": 1,\n" +
-                        " \t \"teamId\": 1,\n" +
-                        " \t \"startYear\": 2019,\n" +
-                        " \t \"endYear\": 2020\n" +
+                        " \t\"playerId\": 1,\n" +
+                        " \t\"teamId\": 1,\n" +
+                        " \t\"startYear\": 2019,\n" +
+                        " \t\"endYear\": 2020\n" +
                         "}"))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value(1L))

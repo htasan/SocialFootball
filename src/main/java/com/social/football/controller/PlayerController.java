@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @RestController
 @RequestMapping("/players")
-@CrossOrigin(origins = "*")
 public class PlayerController {
 
     @ApiOperation(value = "List all players", response = List.class)

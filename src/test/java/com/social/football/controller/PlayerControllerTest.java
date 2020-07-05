@@ -71,8 +71,8 @@ public class PlayerControllerTest {
                 .thenReturn(Player.builder().id(1L).name("Messi").age(33).build());
         mockMvc.perform(post("/players")
                 .contentType("application/json").content("{\n" +
-                        "     \"name\": \"Messi\",\n" +
-                        " \t \"age\" :33\n" +
+                        "\t\"name\": \"Messi\",\n" +
+                        "\t\"age\": 33\n" +
                         "}"))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value(1L))
@@ -86,8 +86,8 @@ public class PlayerControllerTest {
                 .thenReturn(Player.builder().id(1L).name("Messi").age(33).build());
         mockMvc.perform(put("/players/{id}", "1")
                 .contentType("application/json").content("{\n" +
-                        "     \"name\": \"Messi\",\n" +
-                        " \t \"age\" :33\n" +
+                        "\t\"name\": \"Messi\",\n" +
+                        "\t\"age\": 33\n" +
                         "}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L))

@@ -5,7 +5,6 @@ import com.social.football.exception.NotFoundException;
 import com.social.football.model.Contract;
 import com.social.football.model.Player;
 import com.social.football.model.Team;
-import com.social.football.model.dto.PlayerRequestDto;
 import com.social.football.model.dto.TeamRequestDto;
 import com.social.football.repository.TeamRepository;
 import com.social.football.validator.TeamInfoValidator;

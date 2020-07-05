@@ -85,8 +85,8 @@ public class TeamControllerTest {
                 .thenReturn(Team.builder().id(1L).name("Galatasaray").currencyCode("TRY").build());
         mockMvc.perform(post("/teams")
                 .contentType("application/json").content("{\n" +
-                        "     \"name\": \"Galatasaray\",\n" +
-                        " \t \"currencyCode\": \"TRY\"\n" +
+                        "\t\"name\": \"Galatasaray\",\n" +
+                        "\t\"currencyCode\": \"TRY\"\n" +
                         "}"))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value(1L))
@@ -100,8 +100,8 @@ public class TeamControllerTest {
                 .thenReturn(Team.builder().id(1L).name("Galatasaray").currencyCode("TRY").build());
         mockMvc.perform(put("/teams/{id}", "1")
                 .contentType("application/json").content("{\n" +
-                        "     \"name\": \"Galatasaray\",\n" +
-                        " \t \"currencyCode\": \"TRY\"\n" +
+                        "\t\"name\": \"Galatasaray\",\n" +
+                        " \t\"currencyCode\": \"TRY\"\n" +
                         "}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L))
