@@ -1,7 +1,5 @@
 package com.social.football.controller;
 
-import com.social.football.model.Player;
-import com.social.football.model.Team;
 import com.social.football.service.PlayerService;
 import com.social.football.service.TeamService;
 import io.swagger.annotations.ApiOperation;

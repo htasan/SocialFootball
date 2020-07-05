@@ -4,7 +4,6 @@ import com.social.football.validator.TeamInfoValidator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnNotWebApplication;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -101,7 +101,7 @@ public class TeamControllerTest {
         mockMvc.perform(put("/teams/{id}", "1")
                 .contentType("application/json").content("{\n" +
                         "\t\"name\": \"Galatasaray\",\n" +
-                        " \t\"currencyCode\": \"TRY\"\n" +
+                        "\t\"currencyCode\": \"TRY\"\n" +
                         "}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L))

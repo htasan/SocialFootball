@@ -1,6 +1,5 @@
 package com.social.football.controller;
 
-import com.social.football.model.Team;
 import com.social.football.model.dto.*;
 import com.social.football.service.converter.ContractDtoListConverter;
 import com.social.football.service.TeamService;

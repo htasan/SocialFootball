@@ -3,7 +3,6 @@ package com.social.football.model;
 import com.social.football.validator.PlayerInfoValidator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;

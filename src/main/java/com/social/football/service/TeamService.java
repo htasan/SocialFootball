@@ -4,10 +4,8 @@ import com.social.football.exception.NotFoundException;
 import com.social.football.model.Contract;
 import com.social.football.model.Player;
 import com.social.football.model.Team;
-import com.social.football.model.dto.PlayerRequestDto;
 import com.social.football.model.dto.TeamRequestDto;
 import com.social.football.repository.TeamRepository;
-import com.social.football.validator.TeamInfoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -16,7 +14,6 @@ import javax.transaction.Transactional;
 import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,7 +21,6 @@ public class TeamService {
 
     @Autowired
     private TeamRepository teamRepository;
-
     @Autowired
     private PlayerService playerService;
 

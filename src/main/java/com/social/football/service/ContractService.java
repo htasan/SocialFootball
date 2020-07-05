@@ -13,10 +13,8 @@ public class ContractService {
 
     @Autowired
     private ContractRepository contractRepository;
-
     @Autowired
     private PlayerService playerService;
-
     @Autowired
     private TeamService teamService;
 

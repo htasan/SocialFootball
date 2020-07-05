@@ -34,7 +34,7 @@ public class ContractServiceTest {
     private TeamService teamService;
 
     @Test
-    public void shouldCreate() {
+    public void create() {
         when(playerService.findById(1L)).thenReturn(new Player());
         when(teamService.findById(1L)).thenReturn(new Team());
         service.create(ContractRequestDto.builder().playerId(1L).teamId(1L).startYear(2018).endYear(2019).build());
@@ -42,7 +42,7 @@ public class ContractServiceTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenStartYearIsNotBeforeEndYear() {
+    public void throwExceptionWhenStartYearIsNotBeforeEndYear() {
         when(playerService.findById(1L)).thenReturn(new Player());
         when(teamService.findById(1L)).thenReturn(new Team());
         try {
@@ -54,7 +54,7 @@ public class ContractServiceTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenStartYearIsNull() {
+    public void throwExceptionWhenStartYearIsNull() {
         when(playerService.findById(1L)).thenReturn(new Player());
         when(teamService.findById(1L)).thenReturn(new Team());
         try {
@@ -66,7 +66,7 @@ public class ContractServiceTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenEndYearIsNull() {
+    public void throwExceptionWhenEndYearIsNull() {
         when(playerService.findById(1L)).thenReturn(new Player());
         when(teamService.findById(1L)).thenReturn(new Team());
         try {
@@ -78,7 +78,7 @@ public class ContractServiceTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenPlayerNotFound() {
+    public void throwExceptionWhenPlayerNotFound() {
         doThrow(new NotFoundException("Player not found.")).when(playerService).findById(1L);
         try {
             service.create(ContractRequestDto.builder().playerId(1L).teamId(1L).startYear(2017).build());

@@ -9,5 +9,4 @@ public class TeamRequestDto {
 
     private String name;
     private String currencyCode;
-
 }

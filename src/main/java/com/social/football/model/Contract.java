@@ -25,7 +25,6 @@ public class Contract {
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = false)
     private Player player;
-
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
     private Team team;
