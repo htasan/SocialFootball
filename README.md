@@ -1,0 +1,5 @@
+- Check the initial data in `resources/data.sql`
+- Run locally using Maven commands below:
+    - `mvn clean install`
+    - `mvn spring-boot:run`
+- Click the link for API: http://localhost:8080/swagger-ui.html#
