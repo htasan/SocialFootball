@@ -90,6 +90,16 @@ public class PlayerServiceTest {
     }
 
     @Test
+    public void throwExceptionIfAgeIsZero() {
+        try {
+            service.create(PlayerRequestDto.builder().name("Messi").age(0).build());
+            fail();
+        } catch (BadRequestException e) {
+            assertEquals("Age cannot be empty.", e.getMessage());
+        }
+    }
+
+    @Test
     public void calculateContractPrice() {
         Player player = Player.builder().name("Hakan").age(20).build();
         player.addContract(new Contract(player, new Team(), 2017, 2018));

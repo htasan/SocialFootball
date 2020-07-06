@@ -11,7 +11,7 @@ public class PlayerInfoValidator {
         if(StringUtils.isBlank(name)) {
             throw new BadRequestException("Name cannot be empty.");
         }
-        if(age == null) {
+        if(age == null || age <= 0) {
             throw new BadRequestException("Age cannot be empty.");
         }
     }
